@@ -3,11 +3,6 @@
     "description": "Lightweight Auth System with ACL for CodeIgniter 3",
     "type": "codeigniter-third-party",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "AndriSudarmawijaya\\CodeigniterSmartyAcl\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Rubens Rocha",
