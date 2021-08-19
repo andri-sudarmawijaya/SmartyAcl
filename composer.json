@@ -1,5 +1,5 @@
 {
-    "name": "andri-sudarmawijaya/codeigniter-smarty-acl",
+    "name": "andri-sudarmawijaya/smartyacl",
     "description": "Lightweight Auth System with ACL for CodeIgniter 3",
     "type": "codeigniter-third-party",
     "license": "MIT",
