@@ -16,6 +16,9 @@
     "extra": {
         "installer-paths": {
             "application/third-party/": ["type:codeigniter-third-party"]
+        },
+        "branch-alias": {
+            "dev-packagist": "1.0.x-dev"
         }
     }
 }

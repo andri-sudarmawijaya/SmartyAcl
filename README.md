@@ -1,13 +1,13 @@
 
 ## Smarty ACL
 SmartyACL is a library with basic authentication and authorization functions for Codeigniter 3. This library was based on Ion Auth but with the addition of ACL / RBAC and some other features.
-  
+
 ### Features
 - Register
   - Register admin or user
   - Send mail verification (optional)
 - Login
-  - Single or Multi login(email, username or both) 
+  - Single or Multi login(email, username or both)
   - Limit max attempts
   - Remember me
   - Checks account status(inactive or banned) (optional)
@@ -24,7 +24,7 @@ SmartyACL is a library with basic authentication and authorization functions for
 - Admin Group - Users with role/permission access
 - User Group - Common users without role/permission access
 - Cache data to improve performance (optional)
-  
+
 ### Summary
 - [Requirements](#requirements)
 - [Demo](#demo)
@@ -34,17 +34,21 @@ SmartyACL is a library with basic authentication and authorization functions for
 - [Contributing](#contributing)
 - [Support](#support)
 - [References](#references)
-  
+
 ### Requirements
 - Codeigniter 3 (developed on 3.1.11)
 - PHP 7.x (developed on 7.3)
 
 ### Demo
-Download a demo application [here](https://github.com/rubensrocha/codeigniter-smarty-acl-demo)  
+Download a demo application [here](https://github.com/rubensrocha/codeigniter-smarty-acl-demo)
 
 ### Installation
 1. Download latest released version
 2. Put SmartyAcl folder on `application/third_party` directory
+   or install using composer
+   ```
+   composer require andri-sudarmawijaya/smartyacl:1.0.x-dev
+   ```
 3. Add to `$autoload['packages']`¹ in `application/config/autoload.php`
     ```
     $autoload['packages'] = array(APPPATH.'third_party/SmartyAcl');
@@ -107,7 +111,7 @@ Responses:
 int = user registered
 array = user data array if verification is enabled but 'email_sender' is disabled
 false(bool) = failed to register
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -127,7 +131,7 @@ Responses:
 int = user registered
 array = user data array if verification is enabled but 'email_sender' is disabled
 false(bool) = failed to register
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -144,7 +148,7 @@ $this->smarty_acl->login($identity, $password, $remember, $admin);
 Response:
 ```
 (bool) = true if logged in
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -163,7 +167,7 @@ $this->smarty_acl->activate_user($user_id, $code);
 Response:
 ```
 (bool) = true if activated
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -178,7 +182,7 @@ $this->smarty_acl->resend_activation($email, $admin);
 Response:
 ```
 (bool) = true if sent successfully
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -193,7 +197,7 @@ $this->smarty_acl->forgotten_password($email, $admin);
 Response:
 ```
 (bool) = true if sent successfully
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -209,7 +213,7 @@ Response:
 ```
 (bool) = false if code is invalid or expired
 (array) = user data array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -224,7 +228,7 @@ $this->smarty_acl->reset_password($user, $email, $password, $admin);
 Response:
 ```
 (bool) = true if updated successfully
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -241,7 +245,7 @@ $this->smarty_acl->logged_in($admin);
 Response:
 ```
 (bool) = true if user is logged in
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -255,7 +259,7 @@ $this->smarty_acl->logout($admin);
 Response:
 ```
 (bool) = true if user is logged out
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -269,7 +273,7 @@ $this->smarty_acl->roles($result);
 Response:
 ```
 Roles list as object or array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -283,7 +287,7 @@ $this->smarty_acl->create_role($data);
 Response:
 ```
 (bool) = true if created
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -298,7 +302,7 @@ Response:
 ```
 (object) = if found
 (bool) = false if not found
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -312,7 +316,7 @@ $this->smarty_acl->update_role($role_id, $data);
 Response:
 ```
 (bool) = true if updated
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -327,7 +331,7 @@ $this->smarty_acl->delete_role($role_id);
 Response:
 ```
 (bool) = true if deleted
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -341,7 +345,7 @@ $this->smarty_acl->modules($result);
 Response:
 ```
 Roles list as object or array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -355,7 +359,7 @@ $this->smarty_acl->create_module($data);
 Response:
 ```
 (bool) = true if created
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -370,7 +374,7 @@ Response:
 ```
 (object) = if found
 (bool) = false if not found
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -384,7 +388,7 @@ $this->smarty_acl->update_module($module_id, $data);
 Response:
 ```
 (bool) = true if updated
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -399,7 +403,7 @@ $this->smarty_acl->delete_module($module_id);
 Response:
 ```
 (bool) = true if deleted
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -418,7 +422,7 @@ Response:
         [permission_id] => [permission_method_name]
     }
 }
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -442,7 +446,7 @@ $this->smarty_acl->module_authorized($module);
 Response:
 ```
 (bool) = false if not authorized
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -466,7 +470,7 @@ $this->smarty_acl->has_permission($permission);
 Response:
 ```
 (bool) = false if not authorized
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -480,7 +484,7 @@ $this->smarty_acl->admins($result);
 Response:
 ```
 Admins list as object or array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -494,7 +498,7 @@ $this->smarty_acl->users($result);
 Response:
 ```
 Users list as object or array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -508,7 +512,7 @@ $this->smarty_acl->get_user($user_id);
 Response:
 ```
 User data as array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -522,7 +526,7 @@ $this->smarty_acl->get_admin($user_id);
 Response:
 ```
 Admin data as array
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -536,7 +540,7 @@ $this->smarty_acl->update_user($data, $user_id, $admin);
 Response:
 ```
 (bool) = true if updated
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -552,7 +556,7 @@ $this->smarty_acl->delete_user($user_id,$admin);
 Response:
 ```
 (bool) = true if deleted
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -567,7 +571,7 @@ $this->smarty_acl->set_delimiter($start, $end);
 Response:
 ```
 (bool) = true if set successfully
-``` 
+```
 
 | Field | Required | Info |
 | :-----: | :--------: | :-------: |
@@ -583,7 +587,7 @@ Response:
 ```
 (string) = for single error
 (array) = for multiple errors
-``` 
+```
 
 ### Contributing
 Feel free to contribute with corrections, optimizations or improvements. Just send a [Pull Request](https://github.com/rubensrocha/codeigniter-smarty-acl/pulls) with your contribution.
